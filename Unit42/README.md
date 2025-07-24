@@ -3,30 +3,30 @@ Unit42 - Easy Sherlock
 # Scenario:
 &nbsp; &nbsp; "In this Sherlock, you will familiarize yourself with Sysmon logs and various useful EventIDs for identifying and analyzing malicious activities on a Windows  system. Palo Alto's Unit42 recently conducted research on an UltraVNC campaign, wherein attackers utilized a backdoored version of UltraVNC to maintain access to systems. This lab is inspired by that campaign and guides participants through the initial access stage of the campaign."
 # Provided artifacts:
-- **unit42.zip**
+**unit42.zip**
   - **Microsoft-Windows-Sysmon-Operational.evtx**
-    - We were provided a Sysmon Event log that we can open with event viewer. 
+    - This is a Sysmon Event log that we can open with event viewer. 
 # Initial Analysis:
 &nbsp; &nbsp; The event log contained 169 events with 14 unique Event IDs.
 The 169 events only spanned a couple of minutes. The first thing I did was group by event and take a look for anything that immediately stood out. The first thing that stood out was a process created by CyberJunkie -```C:\Users\CyberJunkie\Downloads\Preventivo24.02.14.exe.exe"```. Quickly searching through the rest of the events for related logs pertaining to preventivo24 based off other high interest IDs like 3, 22, 11, and 23, I was able to glean rather quickly that the preventivo24 malware was installed, attempted to obfuscate itself, and then later made connection to a suspicious IP, suggesting potential C2 or exfiltration. 
 <details>
   
 <summary>Event IDs:</summary>
-  
-    - 1: Process Creation
-    - 2: File Creation Time Changed
-    - 3: Network Connection
-    - 5: Process Terminated
-    - 7: Image Loaded
-    - 10: Process Access
-    - 11: File Created
-    - 12: Registery Object Added or Deleted
-    - 13: Registery Value Set
-    - 15 File Create Stream Hash
-    - 17: Pipe Created
-    - 22: DNS Query
-    - 23: File Delete Logged
-    - 26: File Delete Detected
+
+- 1: Process Creation
+- 2: File Creation Time Changed
+- 3: Network Connection
+- 5: Process Terminated
+- 7: Image Loaded
+- 10: Process Access
+- 11: File Created
+- 12: Registery Object Added or Deleted
+- 13: Registery Value Set
+- 15 File Create Stream Hash
+- 17: Pipe Created
+- 22: DNS Query
+- 23: File Delete Logged
+- 26: File Delete Detected
 </details>
 
 - _Prior to viewing the logs I had to check Unit42.zip hash via ```Get-FileHash "${pwd}\unit42.zip -Algorithm SHA1"``` and unzipped the file using 7ZIP_
