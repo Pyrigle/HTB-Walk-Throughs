@@ -105,7 +105,7 @@ C:\Users\CyberJunkie\Downloads\Preventivo24.02.14.exe.exe
 DESKTOP-887GK2L\CyberJunkie
 ``` 
 7. _Which IP address did the malicious process try to reach out to?_
-    - In the logs we were provided there was only a singular network connection made Event ID: 3 ```"93.184.216.34"```.
+  - In the logs we were provided there was only a singular network connection made Event ID: 3 ```"93.184.216.34"```.
 ```
 technique_id=T1036,technique_name=Masquerading
 2024-02-14 03:41:57.159
