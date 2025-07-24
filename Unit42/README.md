@@ -55,7 +55,7 @@ EV_RenderedValue_13.00
 1814183
 1
 ```
-3. _IWhich Cloud drive was used to distribute the malware?_
+3. _Which Cloud drive was used to distribute the malware?_
     - The very first entry in the event logs is an Event ID: 22 which correlates to a DNS query. This DNS query was to dropboxusercontent.com and was subsequently followed by sveral Event ID: 11 one of which was Preventivo24.
 ```
 2024-02-14 03:41:25.269
